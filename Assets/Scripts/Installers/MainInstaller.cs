@@ -10,6 +10,7 @@ public class MainInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<ScoreManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<GameManager>().AsSingle();
         Container.Bind<BirdView>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<GameOverView>().FromComponentInHierarchy().AsSingle();
         Container.BindFactory<Pipe, PipeFactory>().FromComponentInNewPrefab(pipePrefab);
 
         Container.DeclareSignal<GameOverSignal>();

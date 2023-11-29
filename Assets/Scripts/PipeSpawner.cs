@@ -10,7 +10,7 @@ public class PipeSpawner : MonoBehaviour
     [Inject]         private PipeFactory pipeFactory;
     private float spawnTimer;
     private float spawnTimerMax = 2f;
-    private float pipeOffsetY = 10f;
+    private float spawnOffsetY = 9f;
 
     void Update()
     {
@@ -26,6 +26,6 @@ public class PipeSpawner : MonoBehaviour
     {
         var pipeTransform = pipeFactory.Create();
         pipeTransform.transform.SetParent(transform);
-        pipeTransform.transform.localPosition = new Vector2(0f, Random.Range(-pipeOffsetY, pipeOffsetY));
+        pipeTransform.transform.localPosition = new Vector2(0f, Random.Range(-spawnOffsetY, spawnOffsetY));
     }
 }

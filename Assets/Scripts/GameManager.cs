@@ -12,14 +12,17 @@ public class GameManager : ITickable, IInitializable
     private SignalBus signalBus;
     private DiContainer _container;
     private BirdView birdView;
+    private GameOverView gameOverView;
 
-    public GameManager(SignalBus signalBus, DiContainer container, BirdView birdView)
+    public GameManager(SignalBus signalBus, DiContainer container, BirdView birdView, GameOverView gameOverView)
     {
         this.signalBus = signalBus;
         _container = container;
         this.birdView = birdView;
+        this.gameOverView = gameOverView;
     }
 
+    private GameOverPresenter gameOverPresenter;
     private BirdPresenter birdPresenter;
     private bool isOver;
 
@@ -31,14 +34,17 @@ public class GameManager : ITickable, IInitializable
         BirdModel bird = new BirdModel();
         bird.FlapStrength = 20f;
         birdPresenter.Init(bird, birdView);
-
         birdView.Init(birdPresenter);
         birdPresenter.OnStatusChanged += BirdPresenter_OnStatusChanged;
+
+        gameOverPresenter = _container.Instantiate<GameOverPresenter>();
+        gameOverPresenter.Init(gameOverView);
+        gameOverView.Init(gameOverPresenter);
     }
 
     public void Tick()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isOver)
         {
             birdPresenter.OnSpaceOrClick();
         }

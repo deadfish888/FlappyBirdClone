@@ -26,4 +26,5 @@ public class BirdPresenter
         birdModel.IsAlive = false;
         OnStatusChanged?.Invoke(this, EventArgs.Empty);
     }
+
 }
