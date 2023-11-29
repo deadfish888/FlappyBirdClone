@@ -256,14 +256,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 148616197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d200942fdfb8e4fac9726d6f2a48a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 22de15284d70c9a4b9c4891bf948d2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   restartButton: {fileID: 1063351080}
-  gameObjects:
-  - {fileID: 663014619}
-  - {fileID: 887727542}
-  - {fileID: 1063351078}
 --- !u!1 &183278803
 GameObject:
   m_ObjectHideFlags: 0

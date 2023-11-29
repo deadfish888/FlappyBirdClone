@@ -35,11 +35,12 @@ public class GameManager : ITickable, IInitializable
         bird.FlapStrength = 20f;
         birdPresenter.Init(bird, birdView);
         birdView.Init(birdPresenter);
-        birdPresenter.OnStatusChanged += BirdPresenter_OnStatusChanged;
 
         gameOverPresenter = _container.Instantiate<GameOverPresenter>();
         gameOverPresenter.Init(gameOverView);
         gameOverView.Init(gameOverPresenter);
+
+        this.signalBus.Subscribe<GameOverSignal>(this.GameOver);
     }
 
     public void Tick()
@@ -50,10 +51,9 @@ public class GameManager : ITickable, IInitializable
         }
     }
 
-    private void BirdPresenter_OnStatusChanged(object sender, EventArgs e)
+    private void GameOver()
     {
         isOver = true;
-        this.signalBus.Fire(new GameOverSignal());
     }
 
     public bool IsGameOver()

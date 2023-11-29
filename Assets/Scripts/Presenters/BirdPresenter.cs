@@ -1,15 +1,12 @@
-using Assets.Scripts;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class BirdPresenter
 {
     private BirdModel birdModel;
     private BirdView birdView;
 
-    public event EventHandler OnStatusChanged;
+    [Inject] private SignalBus signalBus;
     public void Init(BirdModel bird, BirdView birdView)
     {
         birdModel = bird;
@@ -24,7 +21,7 @@ public class BirdPresenter
     public void PipeCollide()
     {
         birdModel.IsAlive = false;
-        OnStatusChanged?.Invoke(this, EventArgs.Empty);
+        this.signalBus.Fire(new GameOverSignal());
     }
 
 }
