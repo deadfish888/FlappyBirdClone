@@ -11,6 +11,7 @@ public class BirdPresenter
     {
         birdModel = bird;
         this.birdView = birdView;
+        birdView.Init(this);
     }
 
     public void OnSpaceOrClick()

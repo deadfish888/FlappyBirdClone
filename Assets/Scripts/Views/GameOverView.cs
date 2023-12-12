@@ -15,6 +15,9 @@ public class GameOverView : MonoBehaviour
     public void Init(GameOverPresenter presenter)
     {
         this.presenter = presenter;
+    }
+    private void Start()
+    {
         restartButton.onClick.AddListener(presenter.Restart);
     }
 }
@@ -28,6 +31,7 @@ public class GameOverPresenter
     {
         this.view = view;
         this.signalBus.Subscribe<GameOverSignal>(this.GameOver);
+        view.Init(this);
         HideView();
     }
 

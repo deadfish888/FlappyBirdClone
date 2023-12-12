@@ -34,11 +34,9 @@ public class GameManager : ITickable, IInitializable
         BirdModel bird = new BirdModel();
         bird.FlapStrength = 20f;
         birdPresenter.Init(bird, birdView);
-        birdView.Init(birdPresenter);
 
         gameOverPresenter = _container.Instantiate<GameOverPresenter>();
         gameOverPresenter.Init(gameOverView);
-        gameOverView.Init(gameOverPresenter);
 
         this.signalBus.Subscribe<GameOverSignal>(this.GameOver);
     }

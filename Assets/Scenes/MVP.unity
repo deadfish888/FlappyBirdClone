@@ -1944,7 +1944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1433685121253645507, guid: 67adfeb581e2aa04784675bd74442582, type: 3}
       propertyPath: m_Constraints
-      value: 5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433685121253645507, guid: 67adfeb581e2aa04784675bd74442582, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1433685122507654496, guid: 67adfeb581e2aa04784675bd74442582, type: 3}
       propertyPath: m_Layer
